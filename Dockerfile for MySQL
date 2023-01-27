@@ -1,0 +1,15 @@
+
+FROM mysql:8
+
+# Set the working directory
+WORKDIR /var/lib/mysql
+
+# Copy the database data and configuration files to the working directory
+COPY data/ .
+COPY my.cnf /etc/mysql/my.cnf
+
+# Expose the port that the database will run on
+EXPOSE 3306
+
+# Start the database
+CMD ["mysqld"]
