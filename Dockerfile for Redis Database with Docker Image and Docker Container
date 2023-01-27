@@ -1,0 +1,18 @@
+
+FROM redis:latest
+CMD ["redis-server"]
+
+
+
+#This Dockerfile starts with the official Redis image from Docker Hub, and runs the redis-server command when the container starts.
+
+build the image using the following command:
+
+
+docker build -t my-redis .
+
+
+run the image with container
+
+
+docker run -d --name redis-container my-redis
