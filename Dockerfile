@@ -1,18 +1,20 @@
-FROM node:14-alpine
+# Use an official Node.js image as the base image
+FROM node:14
 
-# Create app directory
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Install app dependencies
-
+# Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
 
+# Install the project dependencies
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
-# Bundle app source
+# Copy the rest of the project files to the working directory
 COPY . .
 
+# Expose the port that the application will run on
 EXPOSE 3000
-CMD [ "npm", "start" ]
+
+# Start the application
+CMD ["npm", "start"]
